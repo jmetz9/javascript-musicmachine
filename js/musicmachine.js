@@ -14,6 +14,9 @@ let isRecording = false;
 // Empty array to record a song as the user clicks notes
 let recordedNotes = [];
 
+// TODO
+//  Create two arrays (songOne and songTwo) that hold notes in the form "G,3" or "A,5"
+
 $(document).ready(function () {
 
     // Create the grid of keyboard keys
@@ -44,7 +47,7 @@ $(document).ready(function () {
             keyboardKey.data("octave", octave);
 
             // Make this key run a function when clicked
-            keyboardKey.click(keyClicked);
+            keyboardKey.click(noteClicked);
 
             // Text for display
             keyboardKey.text(`${note}${octave}`);
@@ -59,6 +62,12 @@ $(document).ready(function () {
     $("#playButton").on("click", function () {
         playRecording(recordedNotes);
     });
+    $("#songOneButton").on("click", function() {
+        playRecording(songOne);
+    })
+    $("#songTwoButton").on("click", function() {
+        playRecording(songTwo);
+    })
 
     // Assign functions to the other buttons
     $("#recordButton").on("click", toggleRecording);
@@ -135,7 +144,7 @@ function playRecording(arrayOfNotes) {
     }, arrayOfNotes.length * 500);
 }
 
-function keyClicked() {
+function noteClicked() {
     // Which span was clicked?
     let keyPlayed = $(this);
     // Get its data-note attribute
