@@ -18,7 +18,7 @@ let recordedNotes = [];
 //  Create two arrays (songOne and songTwo) that hold notes in the form "G,3" or "A,5"
 
 let songOne = ["C,3","A,2","D,5"]
-let songOne = ["C,4","B,1","A,4"]
+let songTwo = ["C,4","B,1","A,4"]
 
 $(document).ready(function () {
 
